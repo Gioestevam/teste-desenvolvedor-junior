@@ -1,0 +1,24 @@
+<%- contentFor('body') %>
+<div class="row">
+    <% characters.forEach(character => { %>
+    <div class="col m4">
+        <div class="card">
+            <div class="card-image">
+                <img src="<%= character.image %>">
+                <div class="card-image-label">
+                    <h5><b><%= character.name %></b></h5>
+                </div>
+            </div>
+            <div class="card-content">
+                <p class="text"><b> Visto por último em:</b> <span class="text-right"><%= character.location.name %></span></p>
+                <p class="text"><b>Gênero:</b> <span class="text-right"><%= character.gender %></span></p>
+                <% character.seasons.forEach(season => { %>
+                    <p class="text"><b>Aparições na <%= Number(season.season) %>º Temporada:</b> <span class="text-right"><%= season.amount %></span></p>
+                <% }) %>
+                <p class="text"><b>Aparições no Total:</b> <span class="text-right"><%= character.apparitionTotal %></span></p>
+                <p class="text"><b>Status:</b> <span class="text-right"> <%= character.status %> </span></p>
+            </div>
+        </div>
+    </div>
+    <% }) %>
+</div>
